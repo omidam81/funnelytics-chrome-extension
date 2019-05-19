@@ -21,6 +21,7 @@ function SortMenu({ onClick }) {
             <li key={k} onClick={() => {
               setSelected(p.label);
               onClick(p.value)
+              setShowMenu(!showMenu)
             }}>
               <a href="#">{p.label}</a>
             </li>
