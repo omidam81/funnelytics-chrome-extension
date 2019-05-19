@@ -1,8 +1,6 @@
 import * as actionTypes from '../types';
 import { auth as authServices } from '../services';
-import { userService } from '../../services';
 import { push } from 'connected-react-router';
-import { setAuthHeader } from '../../helpers';
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
 import wrapper from './wrapper';
 export const authStart = () => {
@@ -79,17 +77,7 @@ export const authCheckState = () => {
         }
         //dispatch(!user ? logout() : authSuccess(user));
         dispatch(!userx ? logout() : authSuccess(userx));
-        // console.log('location.pathname', location.pathname);
-        // if(user){
-        //     if (location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/reset-password')
-        //     {
-        //         dispatch(push('/projects'))
-        //         console.log('here');
-        //     }
-        // }else{
-        //     if (location.pathname !== '/login' || location.pathname !== '/register' || location.pathname !== '/reset-password')
-        //         dispatch(push('/login'))
-        // }
+        
         
     };
 };
@@ -100,6 +88,6 @@ export const logout =() => {
         dispatch({
             type: actionTypes.AUTH_LOGOUT
         });
-        push('/login');
+        dispatch(push('/login'));
     };
 };

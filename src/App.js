@@ -4,7 +4,8 @@ import * as actions from './store/actions';
 import { connect } from 'react-redux';
 import { Router, Route, Switch, withRouter,Redirect } from "react-router-dom";
 import './App.css';
-import { RegisterAccount, ResetPassword, Splash } from './pages'
+import { RegisterAccount, ResetPassword } from './pages'
+import Splash from './pages/Splash';
 import Login from './pages/Login';
 import Main from './pages/Main';
 

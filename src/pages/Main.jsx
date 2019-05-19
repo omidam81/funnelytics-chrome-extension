@@ -3,7 +3,7 @@ import { ConnectedRouter, push } from 'connected-react-router';
 import LoadingBar from 'react-redux-loading-bar';
 import * as actions from '../store/actions';
 import { connect } from 'react-redux';
-import { Router, Route, Switch, withRouter, Redirect } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 //import { RegisterAccount, ResetPassword, Splash } from './pages';
 import Header from '../components/Header';
 import Projects from './Projects';
@@ -27,24 +27,24 @@ class App extends Component {
           <Route
             exact
             path="/new-project"
-            component={withRouter(ProjectForm)}
+            component={ProjectForm}
           />
           <Route
             exact
             path="/new-event"
-            component={withRouter(EventForm)}
+            component={EventForm}
           />
           <Route
             exact
             path="/event/:id"
-            component={withRouter(EventDetail)}
+            component={EventDetail}
           />
           <Route
             exact
             path="/project/:id"
-            component={withRouter(Project)}
+            component={Project}
           />
-          <Route exact path="/help" component={withRouter(Help)} />
+          <Route exact path="/help" component={Help} />
         </Switch>
       </div>
     );
@@ -67,4 +67,3 @@ export default connect(
   mapDispatchToProps
 )(App);
 
-//export default App;

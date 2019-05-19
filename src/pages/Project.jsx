@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import * as actions from '../store/actions';
 import { push } from 'connected-react-router';
-import { Router, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Header from '../components/Header';
 import {
   ButtonClickIcon,
   ViewIcon,
