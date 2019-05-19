@@ -1,0 +1,918 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+  border: none;
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+*::-webkit-scrollbar {
+  width: 6px;
+  cursor: pointer !important;
+}
+*::-webkit-scrollbar-track {
+  background: #d6dee6;
+  border-radius: 6px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #009BF3;
+  border-radius: 6px;
+}
+
+body {
+  background: #d6dee6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+b,
+strong {
+  font-weight: 500;
+}
+
+.plugin-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+.plugin-container .plugin-login {
+  width: 400px;
+  background: #fff;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 0 5px;
+          box-shadow: rgba(0, 0, 0, 0.2) 0 0 5px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.plugin-container .splash-screen-main {
+  padding: 32px;
+}
+.plugin-container .splash-screen-main .splash-description {
+  font-size: 14px;
+  line-height: 25px;
+  color: #636E84;
+  margin: 31px auto 22px;
+}
+.plugin-container .splash-screen-main .login-button {
+  background: #009BF3;
+  height: 48px;
+  width: 124px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 48px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+}
+.plugin-container .splash-screen-main form.login-form {
+  margin-top: 32px;
+}
+.plugin-container .splash-screen-main form.login-form .form-field {
+  margin-bottom: 16px;
+}
+.plugin-container .splash-screen-main form.login-form .form-field label {
+  font-size: 12px;
+  color: #636E84;
+}
+.plugin-container .splash-screen-main form.login-form .form-field input {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid #D6DEE6;
+  border-radius: 4px;
+  height: 46px;
+  padding: 0 16px;
+}
+.plugin-container .splash-screen-main form.login-form .form-field input[type="submit"] {
+  background: #009BF3;
+  font-weight: 500;
+  font-size: 14px;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  border: 0;
+}
+.plugin-container .splash-screen-main form.login-form a.link-left {
+  font-size: 12px;
+  float: left;
+  color: #009BF3;
+  text-decoration: none;
+  margin-top: -8px;
+}
+.plugin-container .splash-screen-main form.login-form a.link-right {
+  font-size: 12px;
+  float: right;
+  color: #009BF3;
+  text-decoration: none;
+  margin-top: -8px;
+}
+.plugin-container .splash-screen-footer {
+  padding: 28px 18px;
+  background: #FBFBFE;
+}
+.plugin-container .splash-screen-footer .splash-footer-heading {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 25px;
+  color: #1E2532;
+  margin-left: 21px;
+}
+.plugin-container .splash-screen-footer ul {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.plugin-container .splash-screen-footer ul li {
+  display: inline-block;
+}
+.plugin-container .splash-screen-footer ul li a {
+  text-decoration: none;
+  font-size: 12px;
+  color: #009BF3;
+}
+.plugin-container .triggers {
+  position: relative;
+}
+.plugin-container .triggers .plugin-header {
+  height: 74px;
+  width: 100%;
+  border-bottom: 1px solid #D6DEE6;
+}
+.plugin-container .triggers .plugin-header .header-title-1 {
+  color: #313A4B;
+  font-size: 16px;
+  display: inline-block;
+  margin: 29px 0 0 26px;
+}
+.plugin-container .triggers .plugin-header .header-title-1.blue {
+  color: #009BF3;
+}
+.plugin-container .triggers .plugin-header .header-title-2 {
+  color: #009BF3;
+  font-size: 16px;
+  display: inline-block;
+  margin: 29px 0 0 24px;
+}
+.plugin-container .triggers .plugin-header .menu-btn {
+  width: 74px;
+  border-left: 1px solid #D6DEE6;
+  float: right;
+  height: 74px;
+  padding: 28px 0;
+  cursor: pointer;
+}
+.plugin-container .triggers .plugin-header .menu-btn span {
+  background: #313A4B;
+  width: 24px;
+  height: 2px;
+  margin-bottom: 6px;
+  display: block;
+  border-radius: 1px;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+}
+.plugin-container .triggers .plugin-header .menu-btn.close span:nth-child(1) {
+  -webkit-transform: rotate(45deg) translate(5px, 5px);
+          transform: rotate(45deg) translate(5px, 5px);
+}
+.plugin-container .triggers .plugin-header .menu-btn.close span:nth-child(2) {
+  opacity: 0;
+}
+.plugin-container .triggers .plugin-header .menu-btn.close span:nth-child(3) {
+  -webkit-transform: rotate(-45deg) translate(6px, -6px);
+          transform: rotate(-45deg) translate(6px, -6px);
+}
+.plugin-container .triggers .plugin-header .menu-btn.open {
+  text-align: center;
+}
+.plugin-container .triggers .plugin-header .main-menu {
+  background: #1E2532;
+  width: 159px;
+  position: absolute;
+  right: 10px;
+  top: 74px;
+  padding: 23px 24px 5px;
+  border-radius: 4px;
+  z-index: 10;
+}
+.plugin-container .triggers .plugin-header .main-menu::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 12px;
+  width: 0;
+  height: 0;
+  border: 14px solid transparent;
+  border-bottom-color: #1E2532;
+  border-top: 0;
+  margin-left: -14px;
+  margin-top: -14px;
+}
+.plugin-container .triggers .plugin-header .main-menu ul {
+  list-style: none;
+}
+.plugin-container .triggers .plugin-header .main-menu ul li {
+  display: block;
+  margin-bottom: 18px;
+  line-height: 20px;
+}
+.plugin-container .triggers .plugin-header .main-menu ul li a {
+  font-size: 16px;
+  color: #D6DEE6;
+  text-decoration: none;
+}
+.plugin-container .triggers .listing-options {
+  height: 50px;
+  background: #313A4B;
+  padding: 19px 25px 0 27px;
+  width: 100%;
+  position: relative;
+}
+.plugin-container .triggers .listing-options .sort {
+  float: left;
+  font-size: 12px;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+}
+.plugin-container .triggers .listing-options .filter {
+  float: right;
+  font-size: 12px;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+}
+.plugin-container .triggers .listing-options .sort-menu {
+  background: #1E2532;
+  width: 165px;
+  position: absolute;
+  left: 10px;
+  top: 45px;
+  padding: 16px;
+  border-radius: 4px;
+  list-style: none;
+}
+.plugin-container .triggers .listing-options .sort-menu::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 42px;
+  width: 0;
+  height: 0;
+  border: 14px solid transparent;
+  border-bottom-color: #1E2532;
+  border-top: 0;
+  margin-left: -14px;
+  margin-top: -14px;
+}
+.plugin-container .triggers .listing-options .sort-menu li {
+  line-height: 24px;
+}
+.plugin-container .triggers .listing-options .sort-menu li a {
+  font-size: 12px;
+  text-decoration: none;
+  color: #D6DEE6;
+}
+.plugin-container .triggers .listing-options .filter-menu {
+  background: #1E2532;
+  width: 132px;
+  position: absolute;
+  right: 10px;
+  top: 45px;
+  padding: 16px;
+  border-radius: 4px;
+  list-style: none;
+}
+.plugin-container .triggers .listing-options .filter-menu::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  right: 22px;
+  width: 0;
+  height: 0;
+  border: 14px solid transparent;
+  border-bottom-color: #1E2532;
+  border-top: 0;
+  margin-left: -14px;
+  margin-top: -14px;
+}
+.plugin-container .triggers .listing-options .filter-menu li {
+  line-height: 24px;
+  text-align: right;
+}
+.plugin-container .triggers .listing-options .filter-menu li a {
+  font-size: 12px;
+  text-decoration: none;
+  color: #D6DEE6;
+}
+.plugin-container .triggers .triggers-listing ul.items-listing-ul {
+  list-style: none;
+  height: 400px;
+  overflow-y: auto;
+}
+.plugin-container .triggers .triggers-listing .listing-item {
+  height: 73px;
+  width: 100%;
+  border-bottom: 1px solid #D6DEE6;
+  padding: 0 15px;
+}
+.plugin-container .triggers .triggers-listing .listing-item .icon {
+  width: 33px;
+  height: 33px;
+  background: #009BF3;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 33px;
+  float: left;
+  margin-top: 20px;
+}
+.plugin-container .triggers .triggers-listing .listing-item .icon.button-click {
+  background: #009BF3;
+}
+.plugin-container .triggers .triggers-listing .listing-item .icon.form-submit {
+  background: #7B47EA;
+}
+.plugin-container .triggers .triggers-listing .listing-item .icon.video-play {
+  background: #FF414C;
+}
+.plugin-container .triggers .triggers-listing .listing-item .icon.purchase {
+  background: #4AD260;
+}
+.plugin-container .triggers .triggers-listing .listing-item .item-description {
+  float: left;
+  padding-left: 13px;
+  max-width: 270px;
+}
+.plugin-container .triggers .triggers-listing .listing-item .item-description .item-title {
+  font-size: 14px;
+  color: #313A4B;
+  font-weight: 500;
+  margin-top: 17px;
+  display: block;
+  margin-bottom: 2px;
+}
+.plugin-container .triggers .triggers-listing .listing-item .item-description .item-type {
+  color: #009BF3;
+  font-size: 12px;
+  display: inline-block;
+}
+.plugin-container .triggers .triggers-listing .listing-item .item-description .item-type.button-click {
+  color: #009BF3;
+}
+.plugin-container .triggers .triggers-listing .listing-item .item-description .item-type.form-submit {
+  color: #7B47EA;
+}
+.plugin-container .triggers .triggers-listing .listing-item .item-description .item-type.video-play {
+  color: #FF414C;
+}
+.plugin-container .triggers .triggers-listing .listing-item .item-description .item-type.purchase {
+  color: #4AD260;
+}
+.plugin-container .triggers .triggers-listing .listing-item .item-description .item-id {
+  display: inline-block;
+  font-size: 12px;
+  color: #636E84;
+  margin-left: 15px;
+}
+.plugin-container .triggers .triggers-listing .listing-item .edit-btn {
+  background: #D6DEE6;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  float: right;
+  text-align: center;
+  line-height: 24px;
+  margin-top: 25px;
+  cursor: pointer;
+}
+.plugin-container .triggers .triggers-listing .listing-item .view-btn {
+  background: #D6DEE6;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  float: right;
+  margin-left: 8px;
+  text-align: center;
+  line-height: 24px;
+  margin-top: 25px;
+  cursor: pointer;
+}
+.plugin-container .triggers .create-trigger-btn-container {
+  height: 96px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 -2px 3px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0 -2px 3px;
+  padding: 25px 25px 0;
+  border-top: 1px solid #D6DEE6;
+  position: relative;
+}
+.plugin-container .triggers .create-trigger-btn-container .create-trigger-btn {
+  width: 100%;
+  background: #009BF3;
+  color: #fff;
+  text-align: center;
+  height: 47px;
+  line-height: 47px;
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.plugin-container .triggers .create-trigger-btn-container .create-trigger-btn[disabled] {
+  background: #9AA5B5;
+}
+.plugin-container .triggers .create-trigger-btn-container .create-trigger-btn[disabled]:hover ~ .tooltip-message {
+  display: block;
+}
+.plugin-container .triggers .create-trigger-btn-container .tooltip-message {
+  background: #1E2532;
+  border-radius: 4px;
+  position: absolute;
+  bottom: 75px;
+  right: 0;
+  left: 0;
+  width: 350px;
+  padding: 15px;
+  font-size: 12px;
+  color: #fff;
+  line-height: 21px;
+  display: none;
+}
+.plugin-container .triggers .create-trigger-btn-container .tooltip-message::after {
+  content: '';
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border: 12px solid transparent;
+  border-top-color: #1E2532;
+  border-bottom: 0;
+  margin-left: -12px;
+  margin-bottom: -12px;
+}
+.plugin-container .triggers .project-info {
+  height: 54px;
+  border-top: 1px solid #D6DEE6;
+  padding: 21px 25px 0;
+  font-size: 12px;
+  color: #313A4B;
+  clear: both;
+}
+.plugin-container .triggers .project-info .project-name {
+  float: left;
+}
+.plugin-container .triggers .project-info .project-id {
+  float: right;
+}
+.plugin-container .triggers .create-new-trigger {
+  position: relative;
+  padding: 0 25px;
+  min-height: 462px;
+}
+.plugin-container .triggers .create-new-trigger .steps {
+  width: 100%;
+  height: 24px;
+  position: relative;
+  margin: 24px auto 32px;
+  text-align: center;
+}
+.plugin-container .triggers .create-new-trigger .steps .line-1 {
+  position: absolute;
+  height: 4px;
+  width: 50%;
+  top: 10px;
+  left: 0;
+  z-index: 0;
+  background: #D6DEE6;
+}
+.plugin-container .triggers .create-new-trigger .steps .line-1.blue {
+  background: #009BF3;
+}
+.plugin-container .triggers .create-new-trigger .steps .line-2 {
+  position: absolute;
+  height: 4px;
+  width: 50%;
+  top: 10px;
+  right: 0;
+  z-index: 0;
+  background: #D6DEE6;
+}
+.plugin-container .triggers .create-new-trigger .steps .line-2.blue {
+  background: #009BF3;
+}
+.plugin-container .triggers .create-new-trigger .steps .step {
+  width: 24px;
+  height: 24px;
+  background: #D6DEE6;
+  color: #fff;
+  font-size: 14px;
+  line-height: 24px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+.plugin-container .triggers .create-new-trigger .steps .step.blue {
+  background: #009BF3;
+}
+.plugin-container .triggers .create-new-trigger .steps .step.step-1 {
+  float: left;
+}
+.plugin-container .triggers .create-new-trigger .steps .step.step-3 {
+  float: right;
+}
+.plugin-container .triggers .create-new-trigger .steps-title {
+  font-size: 16px;
+  color: #000;
+  margin-bottom: 25px;
+  display: inline-block;
+}
+.plugin-container .triggers .create-new-trigger .remove-field {
+  font-size: 12px;
+  float: right;
+  color: #009BF3;
+  cursor: pointer;
+}
+.plugin-container .triggers .create-new-trigger .seperator {
+  width: calc(100% + 50px);
+  background: #D6DEE6;
+  height: 1px;
+  clear: both;
+  margin: 7px 0 32px -25px;
+}
+.plugin-container .triggers .create-new-trigger .add-field-btn {
+  width: 156px;
+  float: left;
+  height: 40px;
+  line-height: 40px;
+  display: block;
+  color: #fff;
+  border-radius: 4px;
+  background: #313A4B;
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 32px;
+  cursor: pointer;
+}
+.plugin-container .triggers .create-new-trigger .add-field-btn svg {
+  margin-right: 6px;
+}
+.plugin-container .triggers .create-new-trigger .add-field-btn.add-v-r {
+  width: 187px;
+}
+.plugin-container .triggers .create-new-trigger.edit-trigger {
+  min-height: auto;
+  padding: 32px 25px 0;
+  border-bottom: 1px solid #D6DEE6;
+}
+.plugin-container .triggers .create-new-trigger.edit-trigger .save-trigger {
+  margin-bottom: 40px;
+}
+.plugin-container .triggers .form-field {
+  position: relative;
+  margin-bottom: 18px;
+  width: 100%;
+  clear: both;
+  overflow: hidden;
+}
+.plugin-container .triggers .form-field label {
+  font-size: 14px;
+  color: #636E84;
+  margin-bottom: 10px;
+  display: block;
+}
+.plugin-container .triggers .form-field input {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid #D6DEE6;
+  border-radius: 4px;
+  height: 40px;
+  padding: 0 16px;
+}
+.plugin-container .triggers .form-field input[type="submit"] {
+  background: #009BF3;
+  font-weight: 500;
+  font-size: 14px;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  border: 0;
+  margin-top: 14px;
+}
+.plugin-container .triggers .form-field input.input-with-icon-left {
+  float: right;
+  width: calc(100% - 48px);
+}
+.plugin-container .triggers .form-field label.label-checkbox {
+  position: relative;
+  color: #1E2532;
+  font-size: 14px;
+  cursor: pointer;
+}
+.plugin-container .triggers .form-field label.label-checkbox input {
+  -webkit-appearance: none;
+  width: 16px !important;
+  height: 16px !important;
+  padding: 0 !important;
+  border-radius: 2px !important;
+  vertical-align: bottom;
+  background: #fff !important;
+  border: 1px solid #D6DEE6 !important;
+  margin-right: 6px !important;
+}
+.plugin-container .triggers .form-field label.label-checkbox input:checked {
+  background: #009bf3 !important;
+  border: 1px solid #0788E5 !important;
+}
+.plugin-container .triggers .form-field label.label-checkbox input:checked ~ .checkbox-svg {
+  opacity: 1;
+}
+.plugin-container .triggers .form-field label.label-checkbox .checkbox-svg {
+  position: absolute;
+  top: 4px;
+  left: 3px;
+  opacity: 0;
+}
+.plugin-container .triggers .form-field .input-icon-left {
+  width: 40px;
+  height: 40px;
+  float: left;
+  background: #D6DEE6;
+  line-height: 44px;
+  text-align: center;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.plugin-container .triggers .form-field .input-icon-left.blue {
+  background: #009BF3;
+}
+.plugin-container .triggers .form-field .input-icon-left.purple {
+  background: #7B47EA;
+}
+.plugin-container .triggers .form-field .input-icon-left.red {
+  background: #FF414C;
+}
+.plugin-container .triggers .form-field .input-icon-left.green {
+  background: #4AD260;
+}
+.plugin-container .triggers .form-field select {
+  width: 100%;
+  background: #FFFFFF url("");
+  border: 1px solid #D6DEE6;
+  border-radius: 4px;
+  height: 40px;
+  padding: 0 16px;
+}
+.plugin-container .triggers .form-field.form-field-double {
+  margin-bottom: 6px;
+}
+.plugin-container .triggers .form-field.form-field-double label {
+  display: inline-block;
+}
+.plugin-container .triggers .form-field.form-field-double .remove-field {
+  margin-top: 4px;
+}
+.plugin-container .triggers .form-field.form-field-double select {
+  margin-bottom: 12px;
+}
+.plugin-container .triggers .form-field.form-field-double input {
+  margin-bottom: 12px;
+}
+.plugin-container .triggers .validation-rules-btn {
+  color: #009BF3;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 15px;
+  margin-bottom: 22px;
+  cursor: pointer;
+}
+.plugin-container .triggers .validation-rules-btn .plus-dash {
+  background: #009BF3;
+  width: 12px;
+  height: 2px;
+  border-radius: 1px;
+  position: relative;
+  top: -4px;
+  margin-right: 6px;
+  display: inline-block;
+}
+.plugin-container .triggers .validation-rules-btn .plus-dash::after {
+  content: '';
+  background: #009BF3;
+  position: absolute;
+  width: 2px;
+  height: 12px;
+  top: -5px;
+  border-radius: 1px;
+  left: 5px;
+}
+.plugin-container .triggers .validation-rules-btn.opened .plus-dash::after {
+  display: none;
+}
+.plugin-container .triggers .validation-rules-container {
+  border-top: 1px solid #D6DEE6;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 24px;
+}
+.plugin-container .triggers .validation-rules-container .add-field-btn {
+  margin-bottom: 25px;
+}
+.plugin-container .triggers .save-trigger {
+  width: 100%;
+  background: #4AD260;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+  height: 48px;
+  line-height: 48px;
+  margin-bottom: 48px;
+  font-weight: 500;
+}
+.plugin-container .triggers .graybox-container {
+  background: #FBFBFE;
+  border-bottom: 1px solid #D6DEE6;
+  padding: 32px 25px;
+}
+.plugin-container .triggers .graybox-container h3 {
+  font-size: 16px;
+  color: #313A4B;
+  display: inline-block;
+}
+.plugin-container .triggers .graybox-container .delete-trigger {
+  font-size: 12px;
+  float: right;
+  color: #009BF3;
+  cursor: pointer;
+}
+.plugin-container .triggers .graybox-container .event-id {
+  display: block;
+  font-size: 12px;
+  color: #9AA5B5;
+  margin-bottom: 8px;
+  margin-top: 12px;
+}
+.plugin-container .triggers .graybox-container .created-on {
+  display: block;
+  font-size: 12px;
+  color: #9AA5B5;
+}
+.plugin-container .triggers .graybox-container .created-on a {
+  color: inherit;
+  text-decoration: none;
+}
+.plugin-container .triggers .projects-list {
+  list-style: none;
+  width: 100%;
+  min-height: 560px;
+}
+.plugin-container .triggers .projects-list li {
+  height: 73px;
+  line-height: 73px;
+  border-bottom: 1px solid #D6DEE6;
+  padding: 0 25px;
+  cursor: pointer;
+}
+.plugin-container .triggers .projects-list li span {
+  margin-left: 8px;
+  display: inline-block;
+  font-size: 14px;
+  color: #313A4B;
+  font-weight: 500;
+}
+.plugin-container .triggers .projects-list li:hover {
+  background: #fbfbfe;
+}
+.plugin-container .triggers .trigger-details {
+  padding: 17px 25px 35px;
+  border-bottom: 1px solid #D6DEE6;
+  overflow: hidden;
+}
+.plugin-container .triggers .trigger-details .icon {
+  width: 33px;
+  height: 33px;
+  background: #009BF3;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 33px;
+  float: left;
+  margin-top: 20px;
+}
+.plugin-container .triggers .trigger-details .icon.button-click {
+  background: #009BF3;
+}
+.plugin-container .triggers .trigger-details .icon.form-submit {
+  background: #7B47EA;
+}
+.plugin-container .triggers .trigger-details .icon.video-play {
+  background: #FF414C;
+}
+.plugin-container .triggers .trigger-details .icon.purchase {
+  background: #4AD260;
+}
+.plugin-container .triggers .trigger-details .item-description {
+  float: left;
+  padding-left: 13px;
+  max-width: 270px;
+}
+.plugin-container .triggers .trigger-details .item-description .item-title {
+  font-size: 16px;
+  color: #000;
+  font-weight: 500;
+  margin-top: 17px;
+  display: block;
+  margin-bottom: 2px;
+}
+.plugin-container .triggers .trigger-details .item-description .item-type {
+  color: #009BF3;
+  font-size: 12px;
+  display: inline-block;
+}
+.plugin-container .triggers .trigger-details .item-description .item-type.button-click {
+  color: #009BF3;
+}
+.plugin-container .triggers .trigger-details .item-description .item-type.form-submit {
+  color: #7B47EA;
+}
+.plugin-container .triggers .trigger-details .item-description .item-type.video-play {
+  color: #FF414C;
+}
+.plugin-container .triggers .trigger-details .item-description .item-type.purchase {
+  color: #4AD260;
+}
+.plugin-container .triggers .trigger-details .item-description .item-id {
+  display: inline-block;
+  font-size: 12px;
+  color: #636E84;
+  margin-left: 15px;
+}
+.plugin-container .triggers .white-box-container {
+  width: 100%;
+  border-bottom: 1px solid #D6DEE6;
+  padding: 20px 25px 0;
+  height: 73px;
+}
+.plugin-container .triggers .white-box-container h3 {
+  font-size: 14px;
+  color: #313A4B;
+}
+.plugin-container .triggers .white-box-container a {
+  font-size: 12px;
+  color: #009BF3;
+  text-decoration: none;
+}
+.plugin-container .triggers .white-box-container .edit-btn {
+  background: #D6DEE6;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  float: right;
+  text-align: center;
+  line-height: 24px;
+  cursor: pointer;
+  margin-top: -12px;
+}
+.plugin-container .triggers .delete-trigger-btn {
+  width: 139px;
+  float: left;
+  height: 40px;
+  line-height: 40px;
+  display: block;
+  color: #fff;
+  border-radius: 4px;
+  background: #313A4B;
+  font-weight: 500;
+  font-size: 14px;
+  margin: 32px 25px;
+  cursor: pointer;
+}
