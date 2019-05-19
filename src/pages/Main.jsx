@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import { Router, Route, Switch, withRouter, Redirect } from 'react-router-dom';
 //import { RegisterAccount, ResetPassword, Splash } from './pages';
 import Header from '../components/Header';
-import Login from './Login';
 import Projects from './Projects';
 import Project from './Project';
 import ProjectForm from './ProjectForm';
@@ -15,11 +14,10 @@ import EventDetail from './EventDetail';
 import Help from './Help';
 
 class App extends Component {
-//   componentWillMount() {
-//     this.props.onAutoSignup();
-//   }
+
   render() {
-    const { isAuthenticated, pathname } = this.props;
+    const { isAuthenticated } = this.props;
+    if(!isAuthenticated) return this.props.push('/splash');
     return (
         <div className="triggers">
         <Header />
@@ -51,10 +49,6 @@ class App extends Component {
                 component={withRouter(Project)}
               />
               <Route exact path="/help" component={withRouter(Help)} />
-            
-          
-
-          
         </Switch>
        </div>
     );
@@ -62,14 +56,12 @@ class App extends Component {
 }
 const mapStateToProps = state => {
   return {
-    isAuthenticated: state.auth.token !== null,
-    pathname: state.router.location.pathname
+    isAuthenticated: state.auth.token !== null
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    onAutoSignup: () => dispatch(actions.auth.authCheckState()),
     push: path => dispatch(push(path))
   };
 };
