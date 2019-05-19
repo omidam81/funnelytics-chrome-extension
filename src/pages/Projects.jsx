@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { push } from 'connected-react-router';
 import * as actions from '../store/actions';
 import { connect } from 'react-redux';
-import { Router, Link } from 'react-router-dom';
-import Header from '../components/Header';
 import { ProjectIcon, NewTrigger} from '../svgs';
 
 export class Projects extends Component {

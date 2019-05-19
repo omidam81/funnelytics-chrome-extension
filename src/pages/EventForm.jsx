@@ -3,8 +3,6 @@ import { push } from 'connected-react-router';
 import { reduxForm, Field } from 'redux-form';
 import * as actions from '../store/actions';
 import { connect } from 'react-redux';
-import Header from '../components/Header';
-import StepHeader from '../components/StepHeader';
 import EventWizard from './EventWizard';
 
 import Form from './Form';
