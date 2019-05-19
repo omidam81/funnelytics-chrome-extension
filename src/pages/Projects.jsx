@@ -20,14 +20,14 @@ export class Projects extends Component {
     if (!projects) return null;
     return (
       <>
-        <div className="create-trigger-btn-container">
+        {/* <div className="create-trigger-btn-container">
           <Link to={`/new-project`}>
             <button className="create-trigger-btn">
               <ProjectIcon />
               Create New Project
             </button>
           </Link>
-        </div>
+        </div> */}
         <div className="graybox-container">
           <h3>All Projects</h3>
         </div>

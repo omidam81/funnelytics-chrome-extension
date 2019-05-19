@@ -19,38 +19,34 @@ class App extends Component {
     const { isAuthenticated } = this.props;
     if(!isAuthenticated) return this.props.push('/splash');
     return (
-        <div className="triggers">
+      <div className="triggers">
+        <LoadingBar showFastActions />
         <Header />
         <Switch>
-          
-              <Route
-                exact
-                path="/"
-                component={Projects}
-              />
-              <Route
-                exact
-                path="/new-project"
-                component={withRouter(ProjectForm)}
-              />
-              <Route
-                exact
-                path="/new-event"
-                component={withRouter(EventForm)}
-              />
-              <Route
-                exact
-                path="/event/:id"
-                component={withRouter(EventDetail)}
-              />
-              <Route
-                 exact
-                path="/project/:id"
-                component={withRouter(Project)}
-              />
-              <Route exact path="/help" component={withRouter(Help)} />
+          <Route exact path="/" component={Projects} />
+          <Route
+            exact
+            path="/new-project"
+            component={withRouter(ProjectForm)}
+          />
+          <Route
+            exact
+            path="/new-event"
+            component={withRouter(EventForm)}
+          />
+          <Route
+            exact
+            path="/event/:id"
+            component={withRouter(EventDetail)}
+          />
+          <Route
+            exact
+            path="/project/:id"
+            component={withRouter(Project)}
+          />
+          <Route exact path="/help" component={withRouter(Help)} />
         </Switch>
-       </div>
+      </div>
     );
   }
 }
