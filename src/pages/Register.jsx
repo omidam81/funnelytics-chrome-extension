@@ -5,16 +5,12 @@ import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import * as actions from '../store/actions';
 import Form from './Form';
+import validate from './validate/register';
 
 export class Register extends Form {
 
-
   doSubmit=(value) =>{
-    
-    
-    // if (user.email && user.password) {
-    //   //dispatch(userActions.register(user));
-    // }
+    this.props.authx({email:value.email,password:value.password});
   }
 
   render() {
@@ -69,8 +65,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onAuth: credentials => dispatch(actions.auth.auth(credentials)),
-    onAutoSignup: () => dispatch(actions.auth.authCheckState()),
+    onAuth: credentials => dispatch(actions.auth.authx(credentials)),
     push: path => dispatch(push(path))
   };
 };
@@ -81,7 +76,7 @@ export default connect(
 )(
   reduxForm({
     form: 'registerForm',
-    destroyOnUnmount: true
-    //validate
+    destroyOnUnmount: true,
+    validate
   })(Register)
 );
