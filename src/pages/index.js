@@ -1,5 +1,5 @@
 export {Login} from './Login';
-export {RegisterAccount} from './RegisterAccount';
+export {Register} from './Register';
 export {ResetPassword} from './ResetPassword';
 //export Splash from './Splash';
 export {Projects} from './Projects';

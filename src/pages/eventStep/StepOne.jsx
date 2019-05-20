@@ -2,14 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
 import Form from '../Form';
+import { Types } from './../../constants';
 
 export class StepOne extends Form {
-  options = [
-    { name: 'Button Click', value: 'click' },
-    { name: 'Form Submission', value: 'submit' },
-    { name: 'Video Play', value: 'video' },
-    { name: 'Purchase', value: 'purchase' }
-  ];
+  
   render() {
     return (
       <>
@@ -32,7 +28,7 @@ export class StepOne extends Form {
               placeholder="Select a item"
               component={this.renderSelect}
             >
-              {this.options.map((p, k) => {
+              {Types.map((p, k) => {
                 return (
                   <option value={p.value} key={k}>
                     {p.name}
@@ -55,15 +51,11 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    //remove: id => dispatch(actions.projectEvent.remove(id))
-  };
-};
+
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(
   reduxForm({
     form: 'eventForm',

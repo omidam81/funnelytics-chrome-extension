@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { push } from 'connected-react-router';
 import * as actions from '../store/actions';
 import { connect } from 'react-redux';
-import { ProjectIcon, NewTrigger} from '../svgs';
+import { ProjectIcon} from '../svgs';
 
 export class Projects extends Component {
   componentDidMount() {
@@ -18,14 +18,6 @@ export class Projects extends Component {
     if (!projects) return null;
     return (
       <>
-        {/* <div className="create-trigger-btn-container">
-          <Link to={`/new-project`}>
-            <button className="create-trigger-btn">
-              <ProjectIcon />
-              Create New Project
-            </button>
-          </Link>
-        </div> */}
         <div className="graybox-container">
           <h3>All Projects</h3>
         </div>
