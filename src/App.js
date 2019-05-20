@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ConnectedRouter, push } from 'connected-react-router';
 import * as actions from './store/actions';
 import { connect } from 'react-redux';
-import { Router, Route, Switch, withRouter,Redirect } from "react-router-dom";
+import { Route, Switch, withRouter,Redirect } from "react-router-dom";
 import './App.css';
 import { RegisterAccount, ResetPassword } from './pages'
 import Splash from './pages/Splash';
