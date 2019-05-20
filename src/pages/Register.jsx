@@ -2,6 +2,7 @@ import React from 'react';
 import logo from '../logo.svg';
 import { push } from 'connected-react-router';
 import { reduxForm, Field } from 'redux-form';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../store/actions';
 import Form from './Form';
@@ -42,12 +43,12 @@ export class Register extends Form {
             <div className="form-field">
               <input type="submit" value="Register" />
             </div>
-            <a className="link-left" to="/login">
+            <Link className="link-left" to="/login">
               I have an account
-            </a>
-            <a className="link-right" to="/reset-password">
+            </Link>
+            <Link className="link-right" to="/reset-password">
               Forgot password?
-            </a>
+            </Link>
           </form>
         </div>
       </div>

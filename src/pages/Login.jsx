@@ -48,7 +48,7 @@ export class Login extends Form {
             <div className="form-field">
               <input type="submit" value="Login" />
             </div>
-            <Link className="link-left" to="/register-account">
+            <Link className="link-left" to="/register">
               Don’t have an account?
             </Link>
             <Link className="link-right" to="/reset-password">
