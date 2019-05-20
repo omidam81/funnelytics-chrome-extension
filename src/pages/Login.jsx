@@ -8,6 +8,7 @@ import { push } from 'connected-react-router';
 import * as actions from '../store/actions';
 import { connect } from 'react-redux';
 import Form from './Form';
+import validate from './validate/login';
 
 export class Login extends Form {
   doSubmit = value => {
@@ -82,7 +83,7 @@ export default connect(
 )(
   reduxForm({
     form: 'loginForm',
-    destroyOnUnmount: true
-    //validate
+    destroyOnUnmount: true,
+    validate
   })(Login)
 );
