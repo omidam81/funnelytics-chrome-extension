@@ -27,7 +27,7 @@ function Header({logout}) {
           <div className="main-menu">
             <ul>
               <li>
-                <Link to="/">
+                <Link to="/" onClick={() => setShowMenu(false)}>
                   <AllProjectIcon style={{ marginRight: '13px' }} />
                   All Projects
                 </Link>

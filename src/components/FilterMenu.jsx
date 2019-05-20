@@ -23,6 +23,7 @@ function FilterMenu({ onClick }) {
               onClick={() => {
                 setSelected(p.label);
                 onClick(p.value);
+                setShowMenu(!showMenu);
               }}
             >
               <a href="#">{p.label}</a>
