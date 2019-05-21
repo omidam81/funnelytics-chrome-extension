@@ -1,59 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { push } from 'connected-react-router';
-import Header from '../components/Header';
 import * as actions from '../store/actions';
 import { connect } from 'react-redux';
-import {
-  ButtonClickIcon,
-  ViewIcon,
-  EditIcon,
-  FormSubmitIcon,
-  VideoPlayIcon,
-  PurchaseIcon
-} from '../svgs';
+import { EditIcon } from '../svgs';
+import TriggerItem from '../components/TriggerItem';
+import ProjectInfo from '../components/ProjectInfo';
 import Form from './Form';
 
 export class EventDetail extends Form {
-  getLabel = type => {
-    return type === 'click'
-      ? 'Button Click'
-      : type === 'submit'
-      ? 'Form Submit'
-      : type === 'play'
-      ? 'Video Play'
-      : type === 'purchase'
-      ? 'Purchase'
-      : '';
-  };
-  getClasses = type => {
-    return type === 'click'
-      ? 'button-click'
-      : type === 'submit'
-      ? 'form-submit'
-      : type === 'play'
-      ? 'video-play'
-      : type === 'purchase'
-      ? 'purchase'
-      : '';
-  };
-  renderButton = type => {
-    const classes = `icon ${this.getClasses(type)}`;
-    return (
-      <div className={classes}>
-        {type === 'click' ? (
-          <ButtonClickIcon />
-        ) : type === 'submit' ? (
-          <FormSubmitIcon />
-        ) : type === 'play' ? (
-          <VideoPlayIcon />
-        ) : type === 'purchase' ? (
-          <PurchaseIcon />
-        ) : (
-          ''
-        )}
-      </div>
-    );
-  };
+  
   handleRemove = () => {
     this.props.remove(this.props.event.id);
     this.props.push(`/project/${this.props.project.id}`);
@@ -64,14 +19,7 @@ export class EventDetail extends Form {
     return (
       <>
         <div className="trigger-details">
-          {this.renderButton(event.attributes.trigger_type)}
-          <div className="item-description">
-            <h3 className="item-title">{event.attributes.label}</h3>
-            <span className={`item-type ${event.attributes.trigger_type}`}>
-              {this.getLabel(event.attributes.trigger_type)}
-            </span>
-            <span className="item-id">{`ID: ${event.id.split('-')[0]}`}</span>
-          </div>
+          <TriggerItem event={event} />
         </div>
         <div className="graybox-container">
           <h3>Originally Created On</h3>
@@ -86,14 +34,7 @@ export class EventDetail extends Form {
         <button className="delete-trigger-btn" onClick={this.handleRemove}>
           Delete Trigger
         </button>
-        <div className="project-info">
-          <span className="project-name">
-            <b>Project:</b> Funnelytics
-          </span>
-          <span className="project-id">
-            <b>ID:</b> {project.id}
-          </span>
-        </div>
+        <ProjectInfo id={project.id} />
       </>
     );
   }

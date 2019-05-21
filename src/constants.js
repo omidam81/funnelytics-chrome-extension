@@ -1,6 +1,11 @@
- export const Types = [
-    { name: 'Button Click', value: 'click' },
-    { name: 'Form Submission', value: 'submit' },
-    { name: 'Video Play', value: 'video' },
-    { name: 'Purchase', value: 'purchase' }
+export const Types = [
+  { label: 'Button Click', value: 'click' },
+  { label: 'Form Submission', value: 'submit' },
+  { label: 'Video Play', value: 'play' },
+  { label: 'Purchase', value: 'purchase' }
 ];
+
+export const getLabel = type => {
+  const result = Types.find(c => c.value === type);
+  return result ? result.label : null;
+};
