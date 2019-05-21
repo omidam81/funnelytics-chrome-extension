@@ -3,16 +3,19 @@ import { Link } from 'react-router-dom';
 import LoadingBar from 'react-redux-loading-bar';
 import * as actions from '../store/actions';
 import { connect } from 'react-redux';
+import MainMenu from './MainMenu'
 import {AllProjectIcon,HelpIcon,LogoutIcon,MenuIcon} from '../svgs';
 
 function Header({logout}) {
   const [showMenu,setShowMenu]=useState(false);
+
   return (
     <div className="plugin-header">
       <LoadingBar showFastActions />
       <h2 className="header-title-1">Triggers</h2>
       <h3 className="header-title-2">Webhook Forms</h3>
-      {showMenu === false && (
+      <MainMenu logout={logout}/>
+      {/* {showMenu === false && (
         <div className="menu-btn open" onClick={() => setShowMenu(true)}>
           <MenuIcon />
         </div>
@@ -47,7 +50,7 @@ function Header({logout}) {
             </ul>
           </div>
         </>
-      )}
+      )} */}
     </div>
   );
 }
