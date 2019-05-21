@@ -12,7 +12,7 @@ export class StepThree extends Form {
     { name: 'Option 3', value: '3' },
     { name: 'Option 4', value: '4' }
   ];
-
+    
   renderMembers = ({ fields, meta: { error, submitFailed } }) => (
     <ul className="call-info-ul">
       <li>
@@ -98,7 +98,7 @@ export class StepThree extends Form {
           <div className="dialog-content-container">
             <FieldArray name="formFeilds" component={this.renderMembers} />
           </div>
-          
+          <button type='submit' className="save-trigger">Save Trigger</button>
         </form>
       </>
     );

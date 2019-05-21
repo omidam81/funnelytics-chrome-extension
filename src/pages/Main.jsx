@@ -10,6 +10,7 @@ import Projects from './Projects';
 import Project from './Project';
 import ProjectForm from './ProjectForm';
 import EventForm from './EventForm';
+import EventEditForm from './EventEditForm';
 import EventDetail from './EventDetail';
 import Help from './Help';
 
@@ -24,26 +25,11 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" component={Projects} />
-          <Route
-            exact
-            path="/new-project"
-            component={ProjectForm}
-          />
-          <Route
-            exact
-            path="/new-event"
-            component={EventForm}
-          />
-          <Route
-            exact
-            path="/event/:id"
-            component={EventDetail}
-          />
-          <Route
-            exact
-            path="/project/:id"
-            component={Project}
-          />
+          <Route exact path="/new-project" component={ProjectForm} />
+          <Route exact path="/new-event" component={EventForm} />
+          <Route exact path="/event/:id" component={EventDetail} />
+          <Route exact path="/event-edit/:id" component={EventEditForm} />
+          <Route exact path="/project/:id" component={Project} />
           <Route exact path="/help" component={Help} />
         </Switch>
       </div>
