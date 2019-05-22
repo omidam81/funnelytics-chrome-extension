@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
 import Form from '../Form';
 import { Types } from './../../constants';
+import StepTitle from '../../components/StepTitle';
 
 export class StepOne extends Form {
   
   render() {
     return (
       <>
-        <h2 className="steps-title">Create New Trigger</h2>
+        <StepTitle title={'Create New Trigger'}/>
         <form onSubmit={this.props.onSubmit}>
           <div className="form-field">
             <Field

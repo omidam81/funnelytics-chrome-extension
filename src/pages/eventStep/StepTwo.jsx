@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
+import StepTitle from '../../components/StepTitle';
 import Form from '../Form';
 
 export class StepTwo extends Form {
   render() {
     return (
       <>
-        <h2 className="steps-title">Define Form Submit Button</h2>
+        <StepTitle title={'Define Form Submit Button'} />
         <form onSubmit={this.props.onSubmit}>
           <Field
             name="name"

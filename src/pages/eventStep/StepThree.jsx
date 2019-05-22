@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { reduxForm, Field, FieldArray } from 'redux-form';
 import * as actions from '../../store/actions';
 import { AddFieldIcon, CheckBoxIcon } from '../../svgs';
+import StepTitle from '../../components/StepTitle';
 import Form from '../Form';
 
 export class StepThree extends Form {
@@ -89,12 +90,14 @@ export class StepThree extends Form {
   render() {
     return (
       <>
-        <h2 className="steps-title">Add Your Form Fields</h2>
+        <StepTitle title={'Add Your Form Fields'} />
         <form onSubmit={this.props.handleSubmit(this.props.onSubmit)}>
           <div className="dialog-content-container">
             <FieldArray name="formFeilds" component={this.renderMembers} />
           </div>
-          <button type='submit' className="save-trigger">Save Trigger</button>
+          <button type="submit" className="save-trigger">
+            Save Trigger
+          </button>
         </form>
       </>
     );
