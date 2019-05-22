@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { ConnectedRouter, push } from 'connected-react-router';
+import { push } from 'connected-react-router';
 import LoadingBar from 'react-redux-loading-bar';
 import * as actions from '../store/actions';
 import { connect } from 'react-redux';
-import { Route, Switch, withRouter } from 'react-router-dom';
-//import { RegisterAccount, ResetPassword, Splash } from './pages';
+import { Route, Switch } from 'react-router-dom';
 import Header from '../components/Header';
 import Projects from './Projects';
 import Project from './Project';

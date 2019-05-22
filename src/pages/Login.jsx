@@ -1,9 +1,7 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import logo from '../logo.svg';
-
 import { Link,Redirect } from 'react-router-dom';
-//import { userActions } from '../actions';
 import { push } from 'connected-react-router';
 import * as actions from '../store/actions';
 import { connect } from 'react-redux';

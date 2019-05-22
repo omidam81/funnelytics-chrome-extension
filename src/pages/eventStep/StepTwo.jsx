@@ -40,15 +40,10 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    //remove: id => dispatch(actions.projectEvent.remove(id))
-  };
-};
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(
   reduxForm({
     form: 'eventForm',

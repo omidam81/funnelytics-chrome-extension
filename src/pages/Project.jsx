@@ -13,7 +13,6 @@ export class Project extends Component {
   componentDidMount() {
     if (!this.props.events) {
       this.props.getByFilter('project', this.props.match.params.id);
-      console.log('here');
     }
   }
   handleView = row => {

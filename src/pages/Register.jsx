@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../logo.svg';
 import { push } from 'connected-react-router';
 import { reduxForm, Field } from 'redux-form';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../store/actions';
 import Form from './Form';

@@ -1,7 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
+import { push } from 'connected-react-router';
+import { reduxForm, Field } from 'redux-form';
 import logo from '../logo.svg';
+import Form from './Form';
 
-class ResetPassword extends Component {
+class ResetPassword extends Form {
     render() {
         return (
           <div className="splash-screen">
