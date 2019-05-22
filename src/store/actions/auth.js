@@ -75,8 +75,8 @@ export const authCheckState = () => {
             access_token:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE4NDBmYTJlLTZlMTctNGQyNy05OTA5LWQzMWI4MzM0YjQ5NyIsImlhdCI6MTU1NjgwNTczM30.deiVZLTlEm6R9Cc64yFOrzf1KhhmL4ycxYoduoNx5fM',
             id:'A840FA2E-6E17-4D27-9909-D31B8334B497'
         }
-        //dispatch(!user ? logout() : authSuccess(user));
-        dispatch(!userx ? logout() : authSuccess(userx));
+        dispatch(!user ? logout() : authSuccess(user));
+        //dispatch(!userx ? logout() : authSuccess(userx));
         
         
     };

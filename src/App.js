@@ -4,11 +4,11 @@ import * as actions from './store/actions';
 import { connect } from 'react-redux';
 import { Route, Switch, Redirect } from "react-router-dom";
 import './App.css';
-import {  ResetPassword } from './pages'
 import Register from './pages/Register';
 import Splash from './pages/Splash';
 import Login from './pages/Login';
 import Main from './pages/Main';
+import ResetPassword from './pages/ResetPassword';
 
 class App extends Component {
   componentWillMount() {
@@ -55,8 +55,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(App);
-
-
-
-
-//export default App;
