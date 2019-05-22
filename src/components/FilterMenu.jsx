@@ -23,7 +23,7 @@ function FilterMenu({ onClick }) {
                   setShowMenu(!showMenu);
                 }}
               >
-                <a href="#">{p.label}</a>
+                <a>{p.label}</a>
               </li>
             ))}
           </ul>
