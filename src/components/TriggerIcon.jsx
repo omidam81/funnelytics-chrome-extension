@@ -1,8 +1,6 @@
 import React from 'react'
 import {
   ButtonClickIcon,
-  ViewIcon,
-  EditIcon,
   FormSubmitIcon,
   VideoPlayIcon,
   PurchaseIcon

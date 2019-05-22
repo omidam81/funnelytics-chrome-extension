@@ -1,6 +1,7 @@
 import React from 'react';
 import TriggerIcon from '../components/TriggerIcon';
 import { getLabel } from '../constants';
+
 function TriggerItem({event}) {
   if(!event) return null;
   const { label, trigger_type } = event.attributes;

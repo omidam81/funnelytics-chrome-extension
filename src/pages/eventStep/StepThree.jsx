@@ -33,9 +33,6 @@ export class StepThree extends Form {
               Remove Field
             </span>
             <div className="form-field">
-              {/* <div class="input-icon-left blue">
-                <InputIcon />
-              </div> */}
               <Field
                 name={`${member}.selector`}
                 type="text"
@@ -77,7 +74,6 @@ export class StepThree extends Form {
                   name={`${member}.identifiable`}
                   type="checkbox"
                   label="This field is an identifiable attribute"
-                  //placeholder="Field Name"
                   component={this.renderInput}
                 />
                 <CheckBoxIcon />
