@@ -11,6 +11,13 @@ export const sortMenuItems = [
   { label: 'Triggered (Low - High)', value: 'TRIGGER_ASC' },
   { label: 'Triggered (High - Low)', value: 'TRIGGER_DES' }
 ];
+export const filterMenuItems = [
+  { label: 'Clear', value: 'clear' },
+  { label: 'Button Click', value: 'click' },
+  { label: 'Form Submission', value: 'submit' },
+  { label: 'Product Purchase', value: 'purchase' },
+  { label: 'Video Play', value: 'play' }
+];
 export const getLabel = type => {
   const result = Types.find(c => c.value === type);
   return result ? result.label : null;

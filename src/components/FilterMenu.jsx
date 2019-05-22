@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
-const menuItems = [
-  { label: 'Clear', value: 'clear' },
-  { label: 'Button Click', value: 'click' },
-  { label: 'Form Submission', value: 'submit' },
-  { label: 'Product Purchase', value: 'purchase' },
-  { label: 'Video Play', value: 'play' }
-];
+import { filterMenuItems } from '../constants';
+import ClickOutside from './Outside';
 
 function FilterMenu({ onClick }) {
   const [showMenu, setShowMenu] = useState(false);
@@ -13,24 +8,27 @@ function FilterMenu({ onClick }) {
   return (
     <>
       <span className="filter" onClick={() => setShowMenu(!showMenu)}>
-        Filter{selected === '' || selected === 'Clear' ? `` : ` By ${selected}`}
+        Filter
+        {selected === '' || selected === 'Clear' ? `` : ` By ${selected}`}
       </span>
-      {showMenu && (
-        <ul className="filter-menu">
-          {menuItems.map((p, k) => (
-            <li
-              key={k}
-              onClick={() => {
-                setSelected(p.label);
-                onClick(p.value);
-                setShowMenu(!showMenu);
-              }}
-            >
-              <a href="#">{p.label}</a>
-            </li>
-          ))}
-        </ul>
-      )}
+      <ClickOutside onClickOutside={() => setShowMenu(false)}>
+        {showMenu && (
+          <ul className="filter-menu">
+            {filterMenuItems.map((p, k) => (
+              <li
+                key={k}
+                onClick={() => {
+                  setSelected(p.label);
+                  onClick(p.value);
+                  setShowMenu(!showMenu);
+                }}
+              >
+                <a href="#">{p.label}</a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </ClickOutside>
     </>
   );
 }
