@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { push } from 'connected-react-router';
 import LoadingBar from 'react-redux-loading-bar';
-import * as actions from '../store/actions';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import Header from '../components/Header';
@@ -11,7 +10,7 @@ import ProjectForm from './ProjectForm';
 import EventForm from './EventForm';
 import EventEditForm from './EventEditForm';
 import EventDetail from './EventDetail';
-import Help from './Help';
+
 
 class App extends Component {
 
@@ -29,7 +28,7 @@ class App extends Component {
           <Route exact path="/event/:id" component={EventDetail} />
           <Route exact path="/event-edit/:id" component={EventEditForm} />
           <Route exact path="/project/:id" component={Project} />
-          <Route exact path="/help" component={Help} />
+          
         </Switch>
       </div>
     );

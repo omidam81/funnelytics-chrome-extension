@@ -9,6 +9,8 @@ import Splash from './pages/Splash';
 import Login from './pages/Login';
 import Main from './pages/Main';
 import ResetPassword from './pages/ResetPassword';
+import Help from './pages/Help';
+import ContactSupport from './pages/Support';
 
 class App extends Component {
   componentWillMount() {
@@ -24,6 +26,8 @@ class App extends Component {
         <Route exact path="/splash" component={Splash} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/reset-password" component={ResetPassword} />
+        <Route exact path="/help" component={Help} />
+        <Route exact path="/support" component={ContactSupport} />
         <Route exact path="/register" component={Register} />
           {isAuthenticated && <Route path="/" component={Main} /> }
 

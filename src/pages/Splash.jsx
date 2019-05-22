@@ -21,13 +21,13 @@ function Splash() {
         <h3 className="splash-footer-heading">Need Help?</h3>
         <ul>
           <li>
-            <a href="">Get Started Guide</a>
+            <Link to="/splash">Get Started Guide</Link>
           </li>
           <li>
-            <a href="">Help Desk</a>
+            <Link to="/help">Help Desk</Link>
           </li>
           <li>
-            <a href="">Contact Support</a>
+            <Link to="/support">Contact Support</Link>
           </li>
         </ul>
       </div>

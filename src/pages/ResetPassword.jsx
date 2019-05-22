@@ -16,7 +16,6 @@ export class ResetPassword extends Form {
   };
 
   render() {
-      console.log('props',this.props)
     return (
       <div className="splash-screen">
         <div className="splash-screen-main">
