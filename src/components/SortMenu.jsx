@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
-const menuItems = [
-  { label: 'Date Created', value: 'DATE_CREATED' },
-  { label: 'Alphabetical (A-Z)', value: 'ALPHA_ASC' },
-  { label: 'Alphabetical (Z-A)', value: 'ALPHA_DES' },
-  { label: 'Triggered (Low - High)', value: 'TRIGGER_ASC' },
-  { label: 'Triggered (High - Low)', value: 'TRIGGER_DES' }
-];
+import {sortMenuItems} from '../constants';
+import ClickOutside from './Outside';
+
 function SortMenu({ onClick }) {
   const [showMenu, setShowMenu] = useState(false);
   const [selected, setSelected] = useState('');
@@ -15,19 +11,24 @@ function SortMenu({ onClick }) {
       <span className="sort" onClick={() => setShowMenu(!showMenu)}>
         Sort: {selected}
       </span>
-      {showMenu && (
-        <ul className="sort-menu">
-          {menuItems.map((p, k) => (
-            <li key={k} onClick={() => {
-              setSelected(p.label);
-              onClick(p.value)
-              setShowMenu(!showMenu)
-            }}>
-              <a href="#">{p.label}</a>
-            </li>
-          ))}
-        </ul>
-      )}
+      <ClickOutside onClickOutside={() => setShowMenu(false)}>
+        {showMenu && (
+          <ul className="sort-menu">
+            {sortMenuItems.map((p, k) => (
+              <li
+                key={k}
+                onClick={() => {
+                  setSelected(p.label);
+                  onClick(p.value);
+                  setShowMenu(!showMenu);
+                }}
+              >
+                <a href="#">{p.label}</a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </ClickOutside>
     </>
   );
 }

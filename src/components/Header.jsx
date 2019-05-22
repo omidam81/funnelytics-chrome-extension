@@ -7,7 +7,6 @@ import MainMenu from './MainMenu'
 import {AllProjectIcon,HelpIcon,LogoutIcon,MenuIcon} from '../svgs';
 
 function Header({logout}) {
-  const [showMenu,setShowMenu]=useState(false);
 
   return (
     <div className="plugin-header">
