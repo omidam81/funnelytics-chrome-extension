@@ -39,9 +39,7 @@ export const auth = credentials => {
                         dispatch(push('/'));
                     }
                 },
-                error => {
-                    dispatch(authFail(error.toString()));
-                }
+                error => dispatch(authFail(error.toString()))
             );
         dispatch(hideLoading());
     };
@@ -54,9 +52,7 @@ export const athen = credentials => {
                 data => {
                     
                 },
-                error => {
-                    dispatch(authFail(error.toString()));
-                }
+                error => dispatch(authFail(error.toString()))
             );
         dispatch(hideLoading());
     };
@@ -80,9 +76,14 @@ export const resetPwd = credentials => {
     return async dispatch => {
         dispatch(authStart());
         dispatch(showLoading());
-        const { data, error } = await wrapper(authServices.resetPassword(credentials));
-        if (error) return dispatch(authFail(error));
-        dispatch(push('/login'));
+        authServices.resetPassword(credentials)
+            .then(
+                data => {
+                    dispatch(push('/login'));
+                },
+                error => dispatch(authFail(error.toString()))
+            );
+        
         dispatch(hideLoading());
     };
 };

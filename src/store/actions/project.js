@@ -19,38 +19,30 @@ const selected = data => {
     };
 };
 export const getAll = () => {
-    return async (dispatch,getState) => {
+    return (dispatch,getState) => {
         const {token}=getState().auth;
         dispatch(showLoading());
         project.getAll(token).then(
-            projects => {
-                dispatch(loaded(projects.data));
-            },
-            error => {
-                dispatch(failed(error.toString()));
-            }
+            projects => dispatch(loaded(projects.data)),
+            error => dispatch(failed(error.toString()))
         );
-
-        
         dispatch(hideLoading());
 
     };
 };
 export const getById = id => {
-    return async (dispatch, getState) => {
+    return (dispatch, getState) => {
         const { token } = getState().auth;
-        //dispatch(showLoading());
+        dispatch(showLoading());
         project.getById(id,token).then(
             projects => {
                 dispatch(loaded(projects));
                 //dispatch(push('/projects'));
             },
-            error => {
-                dispatch(failed(error.toString()));
-            }
+            error => dispatch(failed(error.toString()))
         );
 
-        //dispatch(hideLoading());
+        dispatch(hideLoading());
 
     };
 };

@@ -1,7 +1,6 @@
 import * as actionTypes from '../types';
 import { projectEvent } from '../services';
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
-import wrapper from './wrapper';
 
 const failed = error => {
   return { type: actionTypes.PROJECT_EVENT_FAILED, data: error };
@@ -67,7 +66,7 @@ const selected = data => {
 };
 
 export const getAll = () => {
-  return async (dispatch, getState) => {
+  return (dispatch, getState) => {
     const { token } = getState().auth;
     dispatch(showLoading());
     projectEvent
@@ -81,7 +80,7 @@ export const getAll = () => {
   };
 };
 export const getByFilter = (filter,value) => {
-  return async (dispatch, getState) => {
+  return (dispatch, getState) => {
     const { token } = getState().auth;
     dispatch(showLoading());
     projectEvent
@@ -94,7 +93,7 @@ export const getByFilter = (filter,value) => {
   };
 };
 export const getById = id => {
-  return async (dispatch, getState) => {
+  return (dispatch, getState) => {
     const { token } = getState().auth;
     dispatch(showLoading());
     projectEvent
@@ -107,7 +106,7 @@ export const getById = id => {
   };
 };
 export const create = param => {
-  return async (dispatch, getState) => {
+  return  (dispatch, getState) => {
     const { token } = getState().auth;
     dispatch(showLoading());
     projectEvent
@@ -121,23 +120,21 @@ export const create = param => {
 };
 
 export const update = (id, param) => {
-  return async (dispatch, getState) => {
+  return (dispatch, getState) => {
     const { token } = getState().auth;
     dispatch(showLoading());
     projectEvent
       .update(id, param, token)
       .then(
-        result => dispatch(loaded(result)),
+        result => dispatch(updated(result)),
         error => dispatch(failed(error.toString()))
       );
-    const { data, error } = await wrapper(projectEvent.update(id, param, id));
-    dispatch(error ? failed(error) : updated(data));
     dispatch(hideLoading());
   };
 };
 
 export const remove = id => {
-  return async (dispatch, getState) => {
+  return (dispatch, getState) => {
     const { token } = getState().auth;
     dispatch(showLoading());
     projectEvent
@@ -152,7 +149,7 @@ export const remove = id => {
 };
 
 export const getAllAttribute = () => {
-  return async (dispatch, getState) => {
+  return  (dispatch, getState) => {
     const { token } = getState().auth;
     dispatch(showLoading());
     projectEvent
@@ -165,7 +162,7 @@ export const getAllAttribute = () => {
   };
 };
 export const getAttributeById = id => {
-  return async (dispatch, getState) => {
+  return (dispatch, getState) => {
     const { token } = getState().auth;
     dispatch(showLoading());
     projectEvent
@@ -179,13 +176,13 @@ export const getAttributeById = id => {
 };
 
 export const createAttribute = param => {
-  return async (dispatch, getState) => {
+  return  (dispatch, getState) => {
     const { token } = getState().auth;
     dispatch(showLoading());
     projectEvent
       .createAttribute(param, token)
       .then(
-        result => dispatch(loadedAtt(result)),
+        result => dispatch(createdAtt(result)),
         error => dispatch(failedAtt(error.toString()))
       );
     dispatch(hideLoading());
