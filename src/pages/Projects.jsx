@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import { push } from 'connected-react-router';
+import { push } from 'connected-react-router';
 import * as actions from '../store/actions';
 import { connect } from 'react-redux';
 import { ProjectIcon} from '../svgs';
@@ -58,7 +58,7 @@ const mapDispatchToProps = dispatch => {
   return {
     getProjects: () => dispatch(actions.project.getAll()),
     select: param => dispatch(actions.project.select(param)),
-    //push: path => dispatch(push(path))
+    push: path => dispatch(push(path))
   };
 };
 

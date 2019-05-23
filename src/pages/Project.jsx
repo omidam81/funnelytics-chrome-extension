@@ -18,12 +18,12 @@ export class Project extends Component {
   handleView = row => {
     if (!row) return;
     this.props.select(row);
-    this.props.push(`/event/${row.id}`);
+    this.props.push(`/trigger/${row.id}`);
   };
   handleEdit = row => {
     if (!row) return;
     this.props.select(row);
-    this.props.push(`/event-edit/${row.id}`);
+    this.props.push(`/trigger-edit/${row.id}`);
   };
   handleSort = value => {
     this.props.sort(value);
@@ -71,7 +71,7 @@ export class Project extends Component {
           </ul>
         </div>
         <div className="create-trigger-btn-container">
-          <Link to={`/new-event`}>
+          <Link to='/trigger'>
             <button className="create-trigger-btn">
               <NewTriggerIcon />
               Create New Trigger

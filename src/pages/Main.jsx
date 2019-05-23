@@ -23,10 +23,10 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" component={Projects} />
-          <Route exact path="/new-project" component={ProjectForm} />
-          <Route exact path="/new-event" component={TriggerForm} />
-          <Route exact path="/event/:id" component={TriggerDetail} />
-          <Route exact path="/event-edit/:id" component={TriggerEditForm} />
+          <Route exact path="/project" component={ProjectForm} />
+          <Route exact path="/trigger" component={TriggerForm} />
+          <Route exact path="/trigger/:id" component={TriggerDetail} />
+          <Route exact path="/trigger-edit/:id" component={TriggerEditForm} />
           <Route exact path="/project/:id" component={Project} />
         </Switch>
       </div>

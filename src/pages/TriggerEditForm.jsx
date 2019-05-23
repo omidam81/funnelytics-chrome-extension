@@ -5,6 +5,7 @@ import * as actions from '../store/actions';
 import { connect } from 'react-redux';
 import { Types } from '../constants';
 import { InputLetIcon, CheckBoxIcon, AddFieldIcon } from '../svgs';
+import ProjectInfo from '../components/ProjectInfo';
 import Form from './Form';
 
 export class TriggerEdit extends Form {
@@ -112,7 +113,11 @@ export class TriggerEdit extends Form {
             </div>
             <div className="form-field">
               <label>Name this field</label>
-              <input type="text" placeholder="Field Name" name="fieldName" />
+              <input
+                type="text"
+                placeholder="Field Name"
+                name="fieldName"
+              />
             </div>
             <div className="form-field">
               <label className="label-checkbox">
@@ -152,7 +157,11 @@ export class TriggerEdit extends Form {
             </div>
             <div className="form-field">
               <label>Name this field</label>
-              <input type="text" placeholder="Field Name" name="fieldName" />
+              <input
+                type="text"
+                placeholder="Field Name"
+                name="fieldName"
+              />
             </div>
             <div className="form-field">
               <label className="label-checkbox">
@@ -173,14 +182,7 @@ export class TriggerEdit extends Form {
           </button>
           <button className="save-trigger">Save Trigger</button>
         </div>
-        <div className="project-info">
-          <span className="project-name">
-            <b>Project:</b> Funnelytics
-          </span>
-          <span className="project-id">
-            <b>ID:</b> #666666666666666
-          </span>
-        </div>
+        <ProjectInfo id={this.props.project.id} />
       </div>
     );
   }
