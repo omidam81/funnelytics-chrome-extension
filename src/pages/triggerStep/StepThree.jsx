@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { reduxForm, Field, FieldArray } from 'redux-form';
-import * as actions from '../../store/actions';
+//import * as actions from '../../store/actions';
 import { AddFieldIcon, CheckBoxIcon } from '../../svgs';
 import StepTitle from '../../components/StepTitle';
 import Form from '../Form';
@@ -109,16 +109,16 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    //createLocation: param => dispatch(actions.location.create(param)),
-    //updateLocation: (id, param) => dispatch(actions.location.update(id, param))
-  };
-};
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     //createLocation: param => dispatch(actions.location.create(param)),
+//     //updateLocation: (id, param) => dispatch(actions.location.update(id, param))
+//   };
+// };
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(
   reduxForm({
     form: 'triggerForm',
