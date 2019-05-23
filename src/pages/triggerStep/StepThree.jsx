@@ -93,7 +93,7 @@ export class StepThree extends Form {
         <StepTitle title={'Add Your Form Fields'} />
         <form onSubmit={this.props.handleSubmit(this.props.onSubmit)}>
           <div className="dialog-content-container">
-            <FieldArray name="formFeilds" component={this.renderMembers} />
+            <FieldArray name="formFields" component={this.renderMembers} />
           </div>
           <button type="submit" className="save-trigger">
             Save Trigger
@@ -121,7 +121,7 @@ export default connect(
   mapDispatchToProps
 )(
   reduxForm({
-    form: 'eventForm',
+    form: 'triggerForm',
     destroyOnUnmount: false,
     forceUnregisterOnUnmount: true
   })(StepThree)

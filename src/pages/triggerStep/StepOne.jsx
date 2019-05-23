@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
 import Form from '../Form';
-import { Types } from './../../constants';
+import { Types } from '../../constants';
 import StepTitle from '../../components/StepTitle';
 
 export class StepOne extends Form {
@@ -59,7 +59,7 @@ export default connect(
   null
 )(
   reduxForm({
-    form: 'eventForm',
+    form: 'triggerForm',
     destroyOnUnmount: false,
     forceUnregisterOnUnmount: true
   })(StepOne)

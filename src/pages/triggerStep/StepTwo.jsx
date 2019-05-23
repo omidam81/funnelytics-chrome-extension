@@ -11,7 +11,7 @@ export class StepTwo extends Form {
         <StepTitle title={'Define Form Submit Button'} />
         <form onSubmit={this.props.onSubmit}>
           <Field
-            name="name"
+            name="selector"
             type="text"
             icon
             label="Choose the selector for this field"
@@ -46,7 +46,7 @@ export default connect(
   null
 )(
   reduxForm({
-    form: 'eventForm',
+    form: 'triggerForm',
     destroyOnUnmount: false,
     forceUnregisterOnUnmount: true
   })(StepTwo)

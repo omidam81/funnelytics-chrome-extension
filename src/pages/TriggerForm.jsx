@@ -3,20 +3,12 @@ import { push } from 'connected-react-router';
 import { reduxForm, Field } from 'redux-form';
 import * as actions from '../store/actions';
 import { connect } from 'react-redux';
-import EventWizard from './EventWizard';
+import EventWizard from './TriggerWizard';
+import validate from './validate/trigger';
 
 import Form from './Form';
-const validate = values => {
-  const errors = {};
-  if (!values.name) {
-    errors.name = 'Required';
-  } else if (values.name.length <= 4) {
-    errors.username = 'Minimum 5 characters is required';
-  }
 
-  return errors;
-};
-export class NewEvent extends Form {
+export class TriggerForm extends Form {
   doSubmit = value => {
     // console.log(value);
     // const { name } = value;
@@ -49,8 +41,8 @@ export default connect(
   mapDispatchToProps
 )(
   reduxForm({
-    form: 'eventForm',
-    destroyOnUnmount: true
-    //validate
-  })(NewEvent)
+    form: 'triggerForm',
+    destroyOnUnmount: true,
+    validate
+  })(TriggerForm)
 );

@@ -3,11 +3,11 @@ import { push } from 'connected-react-router';
 import { reduxForm, Field } from 'redux-form';
 import * as actions from '../store/actions';
 import { connect } from 'react-redux';
-import { Types } from './../constants';
+import { Types } from '../constants';
 import { InputLetIcon, CheckBoxIcon, AddFieldIcon } from '../svgs';
 import Form from './Form';
 
-export class EventEdit extends Form {
+export class TriggerEdit extends Form {
   doSubmit = value => {
     console.log(value);
     // const { name } = value;
@@ -112,11 +112,7 @@ export class EventEdit extends Form {
             </div>
             <div className="form-field">
               <label>Name this field</label>
-              <input
-                type="text"
-                placeholder="Field Name"
-                name="fieldName"
-              />
+              <input type="text" placeholder="Field Name" name="fieldName" />
             </div>
             <div className="form-field">
               <label className="label-checkbox">
@@ -156,11 +152,7 @@ export class EventEdit extends Form {
             </div>
             <div className="form-field">
               <label>Name this field</label>
-              <input
-                type="text"
-                placeholder="Field Name"
-                name="fieldName"
-              />
+              <input type="text" placeholder="Field Name" name="fieldName" />
             </div>
             <div className="form-field">
               <label className="label-checkbox">
@@ -176,7 +168,7 @@ export class EventEdit extends Form {
           </form>
           <div className="seperator" />
           <button className="add-field-btn">
-            <AddFieldIcon/>
+            <AddFieldIcon />
             Add Form Field
           </button>
           <button className="save-trigger">Save Trigger</button>
@@ -189,7 +181,6 @@ export class EventEdit extends Form {
             <b>ID:</b> #666666666666666
           </span>
         </div>
-
       </div>
     );
   }
@@ -214,8 +205,8 @@ export default connect(
   mapDispatchToProps
 )(
   reduxForm({
-    form: 'eventEditForm',
+    form: 'triggerEditForm',
     destroyOnUnmount: true
     //validate
-  })(EventEdit)
+  })(TriggerEdit)
 );

@@ -7,9 +7,9 @@ import Header from '../components/Header';
 import Projects from './Projects';
 import Project from './Project';
 import ProjectForm from './ProjectForm';
-import EventForm from './EventForm';
-import EventEditForm from './EventEditForm';
-import EventDetail from './EventDetail';
+import TriggerForm from './TriggerForm';
+import TriggerEditForm from './TriggerEditForm';
+import TriggerDetail from './TriggerDetail';
 
 
 class App extends Component {
@@ -24,11 +24,10 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Projects} />
           <Route exact path="/new-project" component={ProjectForm} />
-          <Route exact path="/new-event" component={EventForm} />
-          <Route exact path="/event/:id" component={EventDetail} />
-          <Route exact path="/event-edit/:id" component={EventEditForm} />
+          <Route exact path="/new-event" component={TriggerForm} />
+          <Route exact path="/event/:id" component={TriggerDetail} />
+          <Route exact path="/event-edit/:id" component={TriggerEditForm} />
           <Route exact path="/project/:id" component={Project} />
-          
         </Switch>
       </div>
     );

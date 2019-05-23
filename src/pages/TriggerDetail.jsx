@@ -7,7 +7,7 @@ import TriggerItem from '../components/TriggerItem';
 import ProjectInfo from '../components/ProjectInfo';
 import Form from './Form';
 
-export class EventDetail extends Form {
+export class TriggerDetail extends Form {
   
   handleRemove = () => {
     this.props.remove(this.props.event.id);
@@ -56,4 +56,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(EventDetail);
+)(TriggerDetail);
