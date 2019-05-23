@@ -190,24 +190,6 @@ export class EventEdit extends Form {
           </span>
         </div>
 
-        {/* <div className='create-new-trigger'>
-                    <br />
-                    <form onSubmit={this.props.handleSubmit(this.doSubmit)}>
-                        <div className="form-field">
-                            
-                            <Field
-                                name="name"
-                                type="text"
-                                label="What would you like to name your Project?"
-                                placeholder="Project Name"
-                                component={this.renderInput}
-                            />
-                        </div>
-                        <div className="form-field">
-                            <input type="submit" value="Create Project" />
-                        </div>
-                    </form>
-                </div> */}
       </div>
     );
   }
