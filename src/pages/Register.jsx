@@ -11,7 +11,7 @@ import validate from './validate/register';
 export class Register extends Form {
 
   doSubmit=(value) =>{
-    this.props.authx({email:value.email,password:value.password});
+    this.props.register({ email: value.email, password: value.password });
   }
 
   render() {
@@ -66,7 +66,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onAuth: credentials => dispatch(actions.auth.authx(credentials)),
+    register: credentials => dispatch(actions.auth.athen(credentials)),
     push: path => dispatch(push(path))
   };
 };

@@ -9,10 +9,7 @@ import Form from './Form';
 
 export class ResetPassword extends Form {
   doSubmit = value => {
-    //    this.props.authx({
-    //      email: value.email,
-    //      password: value.password
-    //    });
+       this.props.resetPwd({email: value.email});
   };
 
   render() {
@@ -53,7 +50,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onAuth: credentials => dispatch(actions.auth.authx(credentials)),
+    resetPwd: credentials => dispatch(actions.auth.reserPwd(credentials)),
     push: path => dispatch(push(path))
   };
 };

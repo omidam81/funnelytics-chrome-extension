@@ -24,13 +24,6 @@ export const authFail = error => {
     };
 };
 
-// const logout = () => {
-    
-//     return {
-//         type: actionTypes.AUTH_LOGOUT
-//     };
-// };
-
 
 export const auth = credentials => {
     return async (dispatch) => {
@@ -50,19 +43,21 @@ export const auth = credentials => {
                     dispatch(authFail(error.toString()));
                 }
             );
-
-
-
-       
         dispatch(hideLoading());
     };
 };
-export const authx = credentials => {
-    return async dispatch => {
-        dispatch(authStart());
+export const athen = credentials => {
+    return  dispatch => {
         dispatch(showLoading());
-        const { data, error } = await wrapper(authServices.signup(credentials));
-        if (error) return dispatch(authFail(error));
+        authServices.signup(credentials)
+            .then(
+                data => {
+                    
+                },
+                error => {
+                    dispatch(authFail(error.toString()));
+                }
+            );
         dispatch(hideLoading());
     };
 };
@@ -81,7 +76,16 @@ export const authCheckState = () => {
         
     };
 };
-
+export const resetPwd = credentials => {
+    return async dispatch => {
+        dispatch(authStart());
+        dispatch(showLoading());
+        const { data, error } = await wrapper(authServices.resetPassword(credentials));
+        if (error) return dispatch(authFail(error));
+        dispatch(push('/login'));
+        dispatch(hideLoading());
+    };
+};
 export const logout =() => {
     return (dispatch) => {
         localStorage.removeItem('user');

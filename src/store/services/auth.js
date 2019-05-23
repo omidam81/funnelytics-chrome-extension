@@ -24,5 +24,16 @@ export const auth = {
     return fetch(apiEndpoint, requestOptions)
       .then(parser)
       .then(user =>user);
+  },
+  resetPassword: ({email}) => {
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email })
+    };
+
+    return fetch(apiEndpoint, requestOptions)
+      .then(parser)
+      .then(user => user);
   }
 };

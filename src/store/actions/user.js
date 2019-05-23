@@ -1,7 +1,6 @@
 import * as actionTypes from '../types';
 import { user } from '../services';
-//import { showLoading, hideLoading } from 'react-redux-loading-bar';
-import wrapper from './wrapper';
+import { showLoading, hideLoading } from 'react-redux-loading-bar';
 
 const failed = error => {
     return { type: actionTypes.USER_FAILED, data: error };
@@ -20,10 +19,13 @@ const loaded = data => {
 
 export const getById = id => {
     return async (dispatch) => {
-        //dispatch(showLoading());
-        const { data, error } = await wrapper(user.getById(id));
-        dispatch(error ? failed(error) : loaded(data));
-        //dispatch(hideLoading());
+        dispatch(showLoading());
+        user.getById(id)
+            .then(
+                data => loaded(data) ,
+                error => dispatch(failed(error.toString()))
+            );
+        dispatch(hideLoading());
 
     };
 };
