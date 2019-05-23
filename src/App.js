@@ -32,9 +32,9 @@ class App extends Component {
           {isAuthenticated && <Route path="/" component={Main} /> }
 
         {!isAuthenticated && 
-          (pathname != '/login' ||
-            pathname != '/register' || pathname != '/splash' ||
-            pathname != '/reset-password') && <Redirect to="/login" />}
+          (pathname !== '/login' ||
+            pathname !== '/register' || pathname !== '/splash' ||
+            pathname !== '/reset-password') && <Redirect to="/login" />}
         </Switch>
       </ConnectedRouter>
       

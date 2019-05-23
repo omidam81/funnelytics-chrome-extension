@@ -24,13 +24,12 @@ export class Projects extends Component {
 
         <ul
           className="projects-list"
-          style={
-            !this.state || !projects || projects.length == 0
+          style={ projects===null || projects.length === 0
               ? { minHeight: '20px' }
               : {}
           }
         >
-          {projects == null || projects.length == 0 ? (
+          {projects === null || projects.length === 0 ? (
             <li>You don't have any project. Create one</li>
           ) : (
             ''

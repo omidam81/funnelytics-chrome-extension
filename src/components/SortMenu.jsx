@@ -9,7 +9,7 @@ function SortMenu({ onClick }) {
   return (
     <>
       <span className="sort" onClick={() => setShowMenu(!showMenu)}>
-        Sort: {selected}
+        {selected === '' ? 'Sort' : `Sort: ${selected}`}
       </span>
       <ClickOutside onClickOutside={() => setShowMenu(false)}>
         {showMenu && (

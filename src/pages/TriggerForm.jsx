@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { push } from 'connected-react-router';
-import { reduxForm, Field } from 'redux-form';
+import { reduxForm} from 'redux-form';
 import * as actions from '../store/actions';
 import { connect } from 'react-redux';
 import EventWizard from './TriggerWizard';
