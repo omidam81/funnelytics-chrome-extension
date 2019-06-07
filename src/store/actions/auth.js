@@ -94,5 +94,5 @@ export const logout =() => {
             type: actionTypes.AUTH_LOGOUT
         });
         dispatch(push('/login'));
-    };
+    }; 
 };

@@ -14,13 +14,13 @@ class Form extends Component {
       </div>
     );
   };
-  baseRenderInput = render => ({ input, meta, label, type, icon, ...rest }) => {
+  baseRenderInput = render => ({ input, meta, label, type, icon,inspector, ...rest }) => {
     return (
       <div className="form-field">
         <label>{label}</label>
         {icon && (
           <div className="input-icon-left blue">
-            <InputLetIcon />
+            <InputLetIcon onClick={inspector} />
           </div>
         )}
         {render(input, label, type, rest)}

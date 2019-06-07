@@ -5,6 +5,31 @@ import StepTitle from '../../components/StepTitle';
 import Form from '../Form';
 
 export class StepTwo extends Form {
+  state = {
+    status: false
+  };
+  constructor(props) {
+    super(props);
+    this.funnyInspector = window.Inspector
+      ? window.Inspector({
+          onClick: this.inspectorHandler,
+          filter: '*'
+        })
+      : null;
+  }
+  inspectorHandler = element => {
+    //inspectorElemet=element;
+    console.log('Clicked element:', element);
+  };
+  handleInspector = () => {
+    // this.setState({
+    //   status: !this.state.status
+    // });
+    if (this.funnyInspector) {
+      this.funnyInspector.start();
+      this.funnyInspector.stop();
+    }
+  };
   render() {
     return (
       <>
@@ -12,6 +37,7 @@ export class StepTwo extends Form {
         <form onSubmit={this.props.onSubmit}>
           <Field
             name="selector"
+            inspector={this.handleInspector}
             type="text"
             icon
             label="Choose the selector for this field"
@@ -39,7 +65,6 @@ const mapStateToProps = state => {
     event: state.projectEvent.event
   };
 };
-
 
 export default connect(
   mapStateToProps,
