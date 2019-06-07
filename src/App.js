@@ -1,3 +1,4 @@
+/*global chrome*/
 import React, { Component } from 'react';
 import { ConnectedRouter, push } from 'connected-react-router';
 import * as actions from './store/actions';

@@ -1,9 +1,11 @@
+/*global chrome*/
 import React from 'react';
 import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
 import StepTitle from '../../components/StepTitle';
 import Form from '../Form';
-
+//chrome.tabs.sendMessage(tab.id, { message: 'clicked_browser_action' });
+console.log('chrome', chrome);
 export class StepTwo extends Form {
   state = {
     status: false
