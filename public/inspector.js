@@ -1,6 +1,8 @@
+'use strict';
+
 console.log('Inspector loaded');
 
-var DomOutline = function(options) {
+const DomOutline = function(options) {
   console.log('Inspector loaded');
   options = options || {};
 
@@ -64,25 +66,25 @@ var DomOutline = function(options) {
   }
 
   function createOutlineElements() {
-    self.elements.label = jQuery('<div></div>')
+    self.elements.label = $('<div></div>')
       .addClass(self.opts.namespace + '_label')
       .appendTo('body');
-    self.elements.top = jQuery('<div></div>')
+    self.elements.top = $('<div></div>')
       .addClass(self.opts.namespace)
       .appendTo('body');
-    self.elements.bottom = jQuery('<div></div>')
+    self.elements.bottom = $('<div></div>')
       .addClass(self.opts.namespace)
       .appendTo('body');
-    self.elements.left = jQuery('<div></div>')
+    self.elements.left = $('<div></div>')
       .addClass(self.opts.namespace)
       .appendTo('body');
-    self.elements.right = jQuery('<div></div>')
+    self.elements.right = $('<div></div>')
       .addClass(self.opts.namespace)
       .appendTo('body');
   }
 
   function removeOutlineElements() {
-    jQuery.each(self.elements, function(name, element) {
+    $.each(self.elements, function(name, element) {
       element.remove();
     });
   }
@@ -94,7 +96,7 @@ var DomOutline = function(options) {
     }
     if (element.className) {
       label += (
-        '.' + jQuery.trim(element.className).replace(/ /g, '.')
+        '.' + $.trim(element.className).replace(/ /g, '.')
       ).replace(/\.\.+/g, '.');
     }
     return label + ' (' + Math.round(width) + 'x' + Math.round(height) + ')';
@@ -102,7 +104,7 @@ var DomOutline = function(options) {
 
   function getScrollTop() {
     if (!self.elements.window) {
-      self.elements.window = jQuery(window);
+      self.elements.window = $(window);
     }
     return self.elements.window.scrollTop();
   }
@@ -112,7 +114,7 @@ var DomOutline = function(options) {
       return;
     }
     if (self.opts.filter) {
-      if (!jQuery(e.target).is(self.opts.filter)) {
+      if (!$(e.target).is(self.opts.filter)) {
         return;
       }
     }
@@ -180,16 +182,16 @@ var DomOutline = function(options) {
     if (self.active !== true) {
       self.active = true;
       createOutlineElements();
-      jQuery('body').on(
+      $('body').on(
         'mousemove.' + self.opts.namespace,
         updateOutlinePosition
       );
-      jQuery('body').on('keyup.' + self.opts.namespace, stopOnEscape);
+      $('body').on('keyup.' + self.opts.namespace, stopOnEscape);
       if (self.opts.onClick) {
         setTimeout(function() {
-          jQuery('body').on('click.' + self.opts.namespace, function(e) {
+          $('body').on('click.' + self.opts.namespace, function(e) {
             if (self.opts.filter) {
-              if (!jQuery(e.target).is(self.opts.filter)) {
+              if (!$(e.target).is(self.opts.filter)) {
                 return false;
               }
             }
@@ -203,7 +205,7 @@ var DomOutline = function(options) {
   pub.stop = function() {
     self.active = false;
     removeOutlineElements();
-    jQuery('body')
+    $('body')
       .off('mousemove.' + self.opts.namespace)
       .off('keyup.' + self.opts.namespace)
       .off('click.' + self.opts.namespace);
@@ -211,19 +213,5 @@ var DomOutline = function(options) {
 
   return pub;
 };
-//console.log('window.Inspector', window.Inspector);
-
-//alert("Hello from your Chrome extension!");
-
-// chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-//   if (request.message === 'clicked_browser_action') {
-//     console.log('Here:::');
-//       var myDomOutline = Inspector({
-//       onClick: myExampleClickHandler,
-//       filter: '*'
-//     });
-//     myDomOutline.start();
-//     // myDomOutline.stop();
-//     //console.log('firstHref',firstHref);
-//   }
-// });
+export { DomOutline };
+//export default DomOutline;

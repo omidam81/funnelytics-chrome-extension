@@ -126,7 +126,7 @@ module.exports = function(webpackEnv) {
     // This means they will be the "root" imports that are included in JS bundle.
     entry: {
       
-      insp: ['./public/inspector.js'],
+      // insp: ['./public/inspector.js'],
       content: ['./src/content.js'],
       app: [paths.appIndexJs]
      
