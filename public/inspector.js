@@ -2,7 +2,7 @@
 
 console.log('Inspector loaded');
 
-const DomOutline = function(options) {
+var DomOutline = function(options) {
   console.log('Inspector loaded');
   options = options || {};
 
@@ -213,5 +213,5 @@ const DomOutline = function(options) {
 
   return pub;
 };
-export { DomOutline };
+//export { DomOutline };
 //export default DomOutline;

@@ -127,7 +127,7 @@ module.exports = function(webpackEnv) {
     entry: {
       
       // insp: ['./public/inspector.js'],
-      content: ['./src/content.js'],
+      //content: ['./src/content.js'],
       app: [paths.appIndexJs]
      
     },

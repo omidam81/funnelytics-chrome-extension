@@ -5,32 +5,39 @@ import { reduxForm, Field } from 'redux-form';
 import StepTitle from '../../components/StepTitle';
 import Form from '../Form';
 //chrome.tabs.sendMessage(tab.id, { message: 'clicked_browser_action' });
-console.log('chrome', chrome);
+//console.log('chrome', chrome);
+
+//port.postMessage({ joke: 'Knock knock' });
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+  console.log('extention listener');
+  console.log('extention Got sender', sender);
+  if (request.message == 'xpath') {
+      console.log('request',request.inspect);
+  }
+});
 export class StepTwo extends Form {
   state = {
     status: false
   };
   constructor(props) {
     super(props);
-    this.funnyInspector = window.Inspector
-      ? window.Inspector({
-          onClick: this.inspectorHandler,
-          filter: '*'
-        })
-      : null;
+    
+      this.handleInspector = this.handleInspector.bind(this);
+      // port.onMessage.addListener(function(msg) {
+      //   console.log('msg',msg);
+      //   //port.postMessage({ message: 'clicked_browser_action' });
+      // });
   }
-  inspectorHandler = element => {
-    //inspectorElemet=element;
-    console.log('Clicked element:', element);
-  };
+  
   handleInspector = () => {
-    // this.setState({
-    //   status: !this.state.status
-    // });
-    if (this.funnyInspector) {
-      this.funnyInspector.start();
-      this.funnyInspector.stop();
-    }
+    console.log('handleInspector');
+    chrome.tabs.query({ active: true, currentWindow: true }, function(
+      tabs
+    ) {
+      chrome.tabs.sendMessage(
+        tabs[0].id,
+        { message: 'clicked_browser_action' });
+    });
   };
   render() {
     return (
