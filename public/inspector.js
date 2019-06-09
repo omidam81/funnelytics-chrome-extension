@@ -95,9 +95,10 @@ var DomOutline = function(options) {
       label += '#' + element.id;
     }
     if (element.className) {
-      label += (
-        '.' + $.trim(element.className).replace(/ /g, '.')
-      ).replace(/\.\.+/g, '.');
+      label += ('.' + $.trim(element.className).replace(/ /g, '.')).replace(
+        /\.\.+/g,
+        '.'
+      );
     }
     return label + ' (' + Math.round(width) + 'x' + Math.round(height) + ')';
   }
@@ -172,7 +173,32 @@ var DomOutline = function(options) {
 
   function clickHandler(e) {
     pub.stop();
-    self.opts.onClick(pub.element);
+    var path = $(pub.element)
+        .parents()
+        .addBack();
+      var xpath = '';
+      for (var i = 0; i < path.length; i++) {
+        var nd = path[i].nodeName.toLowerCase();
+        xpath += '/';
+        if (nd != 'html' && nd != 'body') {
+          xpath += nd;
+          if (path[i].id != '') {
+            xpath += '#' + path[i].id;
+          } else {
+            xpath +=
+              '[' +
+              ($(path[i - 1])
+                .children()
+                .index(path[i]) +
+                1) +
+              ']';
+          }
+          if (path[i].className != '') xpath += '.' + path[i].className;
+        } else {
+          xpath += nd;
+        }
+      }
+    self.opts.onClick(pub.element,xpath);
 
     return false;
   }
@@ -182,16 +208,13 @@ var DomOutline = function(options) {
     if (self.active !== true) {
       self.active = true;
       createOutlineElements();
-      $('body').on(
-        'mousemove.' + self.opts.namespace,
-        updateOutlinePosition
-      );
+      $('body').on('mousemove.' + self.opts.namespace, updateOutlinePosition);
       $('body').on('keyup.' + self.opts.namespace, stopOnEscape);
       if (self.opts.onClick) {
         setTimeout(function() {
-          $('body').on('click.' + self.opts.namespace, function(e) {
+          jQuery('body').on('click.' + self.opts.namespace, function (e) {
             if (self.opts.filter) {
-              if (!$(e.target).is(self.opts.filter)) {
+              if (!jQuery(e.target).is(self.opts.filter)) {
                 return false;
               }
             }
