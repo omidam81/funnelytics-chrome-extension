@@ -8,35 +8,38 @@ import Form from '../Form';
 //console.log('chrome', chrome);
 
 //port.postMessage({ joke: 'Knock knock' });
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-  console.log('extention listener');
-  console.log('extention Got sender', sender);
-  if (request.message == 'xpath') {
-      console.log('request',request.inspect);
-  }
-});
+
 export class StepTwo extends Form {
   state = {
     status: false
   };
   constructor(props) {
     super(props);
-    
-      this.handleInspector = this.handleInspector.bind(this);
-      // port.onMessage.addListener(function(msg) {
-      //   console.log('msg',msg);
-      //   //port.postMessage({ message: 'clicked_browser_action' });
-      // });
+
+    this.handleInspector = this.handleInspector.bind(this);
+    // port.onMessage.addListener(function(msg) {
+    //   console.log('msg',msg);
+    //   //port.postMessage({ message: 'clicked_browser_action' });
+    // });
   }
-  
+
   handleInspector = () => {
     console.log('handleInspector');
-    chrome.tabs.query({ active: true, currentWindow: true }, function(
-      tabs
+    chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+      chrome.tabs.sendMessage(tabs[0].id, {
+        message: 'clicked_browser_action'
+      });
+    });
+    chrome.runtime.onMessage.addListener(function(
+      request,
+      sender,
+      sendResponse
     ) {
-      chrome.tabs.sendMessage(
-        tabs[0].id,
-        { message: 'clicked_browser_action' });
+      
+      if (request.message == 'xpath') {
+        console.log('request', request.inspect);
+        this.props.event.selector = request.inspect;
+      }
     });
   };
   render() {
