@@ -2,6 +2,7 @@ import * as actionTypes from '../types';
 import { updateState } from './state';
 const initialState = {
     step:0,
+    page:1,
     events: null,
     event:null,
     sort: null,
@@ -90,6 +91,10 @@ const reducer = (state = initialState, { data, type }) => {
         }
         case actionTypes.PROJECT_EVENT_LOADING:
             return updateState(state, { error: null, loading: true });
+        case actionTypes.PROJECT_EVENT_NEXT_PAGE:
+            return updateState(state, { page:state.page+1});
+        case actionTypes.PROJECT_EVENT_PREV_PAGE:
+            return updateState(state, { page: state.page - 1 });
         case actionTypes.PROJECT_EVENT_FAILED:
             return updateState(state, { error: data, loading: false });
         default:

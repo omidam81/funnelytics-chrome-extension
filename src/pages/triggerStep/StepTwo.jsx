@@ -1,18 +1,27 @@
 /*global chrome*/
 import React from 'react';
 import { connect } from 'react-redux';
-import { reduxForm, Field } from 'redux-form';
+import { reduxForm, Field, change } from 'redux-form';
+//import { save, load } from 'redux-localstorage-simple';
 import StepTitle from '../../components/StepTitle';
 import Form from '../Form';
-//chrome.tabs.sendMessage(tab.id, { message: 'clicked_browser_action' });
-//console.log('chrome', chrome);
-
-//port.postMessage({ joke: 'Knock knock' });
 
 export class StepTwo extends Form {
   state = {
     status: false
   };
+  componentDidMount() {
+    console.log(this.props);
+    chrome.storage.local.get('xpath',(data)=> {
+      console.log('data', data);
+       this.props.change('selector', "data.xpath");
+      if (typeof data.xpath == 'undefined') {
+        // That's kind of bad
+      } else {
+         this.props.change('selector', data.xpath);
+      }
+    });
+  }
   constructor(props) {
     super(props);
 
@@ -29,17 +38,6 @@ export class StepTwo extends Form {
       chrome.tabs.sendMessage(tabs[0].id, {
         message: 'clicked_browser_action'
       });
-    });
-    chrome.runtime.onMessage.addListener(function(
-      request,
-      sender,
-      sendResponse
-    ) {
-      
-      if (request.message == 'xpath') {
-        console.log('request', request.inspect);
-        this.props.event.selector = request.inspect;
-      }
     });
   };
   render() {
@@ -72,15 +70,31 @@ export class StepTwo extends Form {
     );
   }
 }
+//const xpath = localStorage.getItem('xpath');
+// chrome.storage.local.get("xpath", function(data) {
+//     if(typeof data.xpath == "undefined") {
+//         // That's kind of bad
+//     } else {
+//         // Use data.count
+//     }
+//   });
 const mapStateToProps = state => {
   return {
     event: state.projectEvent.event
+    // ? state.projectEvent.event
+    // : {
+    //     selector: xpath
+    //   }
   };
 };
-
+const mapDispatchToProps = dispatch => {
+  return {
+    change: (field, value) => dispatch(change('triggerForm', field, value))
+  };
+};
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(
   reduxForm({
     form: 'triggerForm',

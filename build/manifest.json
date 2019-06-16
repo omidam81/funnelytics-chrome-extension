@@ -20,5 +20,5 @@
     "48": "icon.png",
     "128": "icon.png"
   },
-  "permissions": ["tabs", "notifications", "http://*/", "https://*/"]
+  "permissions": ["storage","tabs", "notifications", "http://*/", "https://*/"]
 }

@@ -8,8 +8,12 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     var myDomOutline = DomOutline({
       onClick: function(element,xpath) {
         console.log('Clicked element:', xpath);
+        //localStorage.setItem('xpath', xpath);
+        chrome.storage.local.set({ xpath: xpath });
         chrome.runtime.sendMessage({ message: 'xpath', inspect: xpath });
         //sendResponse({ message: element });
+        
+
       },
       filter: '*'
     });

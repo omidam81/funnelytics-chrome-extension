@@ -25,7 +25,9 @@ export class TriggerForm extends Form {
 }
 const mapStateToProps = state => {
   return {
-    initialValues: state.projectEvent.event
+    initialValues: state.projectEvent?state.projectEvent.event:{
+      selector:''
+    }
   };
 };
 

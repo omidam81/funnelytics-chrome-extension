@@ -5,7 +5,12 @@ import { showLoading, hideLoading } from 'react-redux-loading-bar';
 const failed = error => {
   return { type: actionTypes.PROJECT_EVENT_FAILED, data: error };
 };
-
+export const nextPage = () => {
+  return { type: actionTypes.PROJECT_EVENT_NEXT_PAGE };
+};
+export const prevPage = () => {
+  return { type: actionTypes.PROJECT_EVENT_PREV_PAGE };
+};
 const loaded = data => {
   return {
     type: actionTypes.PROJECT_EVENT_LOADED,
