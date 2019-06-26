@@ -236,5 +236,3 @@ var DomOutline = function(options) {
 
   return pub;
 };
-//export { DomOutline };
-//export default DomOutline;

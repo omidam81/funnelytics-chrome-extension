@@ -1,3 +1,4 @@
+/*global chrome*/
 import React, { Component } from 'react';
 import { push } from 'connected-react-router';
 import * as actions from '../store/actions';
@@ -6,7 +7,20 @@ import { ProjectIcon} from '../svgs';
 
 export class Projects extends Component {
   componentDidMount() {
+    
     if (!this.props.projects) this.props.getProjects();
+    let projectId = chrome.storage.local.get('project_id')
+    if(projectId){
+      // eslint-disable-next-line eqeqeq
+      let item = this.props.projects.filter(a => a.project.id == projectId)
+      if(item.length > 0)
+      item = item.firstObject;
+      this.props.select(item);
+      this.props.push(`/project/${item.id}`);
+      chrome.storage.local.remove('project_id');
+    }
+
+
   }
 
   handleClick = item => {

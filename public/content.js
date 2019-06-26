@@ -22,3 +22,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   }
   //sendResponse({ farewell: "goodbye" });
 });
+
+if(funnelytics && funnelytics.project){
+  chrome.storage.local.set({ project_id:  funnelytics.project});
+}

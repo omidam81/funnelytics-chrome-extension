@@ -32,7 +32,7 @@ export class StepOne extends Form {
               {Types.map((p, k) => {
                 return (
                   <option value={p.value} key={k}>
-                    {p.name}
+                    {p.label}
                   </option>
                 );
               })}
